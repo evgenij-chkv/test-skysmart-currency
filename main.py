@@ -50,12 +50,14 @@ def parse(currency, html_text):
 
 
 def get_currency(currency):
-    s = requests.Session()
-    s.headers = {
-        'cookie': 'swp_token=1529318441:da348e5038f36f4e22e839d6e317852a:c8fe351689c07b18b38cf1bb7e6604ff',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36'
+   headers = {
+       'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11','Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+       'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
+       'Accept-Encoding': 'none',
+       'Accept-Language': 'en-US,en;q=0.8',
+       'Connection': 'keep-alive'
     }
-    r = s.get('https://www.cbr.ru/currency_base/daily/')
+    r = requests.get('https://www.cbr.ru/currency_base/daily/', headers=headers)
     soup = BeautifulSoup(r.text, 'html.parser')
     button = soup.find('button', {'class': 'datepicker-filter_button'}) 
     button_text = ''
