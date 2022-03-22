@@ -1,2 +1,2 @@
-# test-skysmart-currency
-Test skysmart currency
+# skysmart-currency
+telegram bot for getting currency
