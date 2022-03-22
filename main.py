@@ -9,7 +9,6 @@ import os
 import telebot
 import requests
 from bs4 import BeautifulSoup
-# TOKEN = '5206778605:AAF1G-dYOWhNYVUhCHM8g9GpYVQp3yo2ePc'
 TOKEN = os.environ.get('BOT_TOKEN')
 keys = telebot.types.ReplyKeyboardMarkup(True, True)
 keys.row('Курс USD', 'Курс EUR')
